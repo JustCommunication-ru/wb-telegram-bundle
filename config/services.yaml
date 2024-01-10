@@ -1,0 +1,21 @@
+parameters:
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+  # вот так контроллер начинает работать
+    JustCommunication\TelegramBundle\:
+        resource: '../src/'
+
+    #JustCommunication\TelegramBundle\Controller\NewController:
+    #    arguments:
+    #        $my_param: '%justcommunication.telegram.pumpum%'
+
+
+    jc.service.telegramwebhook:
+        class: JustCommunication\TelegramBundle\Service\TelegramWebhook
+
+    JustCommunication\TelegramBundle\Controller\TelegramController:
+        arguments:
+            $webhook: '@jc.service.telegramwebhook'
