@@ -1,7 +1,7 @@
 # Telegram Bundle
 
 ## Установка 
-`composer require justcommunication/telegram-bundle`
+`composer require justcommunication/wb-telegram-bundle`
 
 ## Требования
 Пакет встраивается в полноценный Symfony проект и требует ряд общих механизмов:
