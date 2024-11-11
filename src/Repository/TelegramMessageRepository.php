@@ -19,6 +19,7 @@ class TelegramMessageRepository extends ServiceEntityRepository
 {
     use CacheTrait;
     private EntityManagerInterface $em;
+    private LoggerInterface $logger;
 
     public function __construct(ManagerRegistry $registry, LoggerInterface $logger, EntityManagerInterface $em)
     {

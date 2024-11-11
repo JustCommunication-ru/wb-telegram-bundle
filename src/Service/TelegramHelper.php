@@ -45,7 +45,7 @@ class TelegramHelper
      * @var null
      */
     public $debug_callback = null;
-
+    private array $events;
     private UrlGeneratorInterface $router;
 
     public function __construct(ParameterBagInterface $params, LoggerInterface $logger,

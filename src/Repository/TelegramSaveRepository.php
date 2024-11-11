@@ -17,7 +17,8 @@ use Psr\Log\LoggerInterface;
 class TelegramSaveRepository extends ServiceEntityRepository
 {
     private EntityManagerInterface $em;
-
+    private LoggerInterface $logger;
+    
     public function __construct(ManagerRegistry $registry,LoggerInterface $logger, EntityManagerInterface $em)
     {
         parent::__construct($registry, TelegramSave::class);

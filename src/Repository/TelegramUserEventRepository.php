@@ -20,6 +20,7 @@ class TelegramUserEventRepository extends ServiceEntityRepository
 {
     use CacheTrait;
     private EntityManagerInterface $em;
+    private LoggerInterface $logger;
     const CACHE_NAME = 'telegram_user_events';
 
     public function __construct(ManagerRegistry $registry, LoggerInterface $logger, EntityManagerInterface $em)

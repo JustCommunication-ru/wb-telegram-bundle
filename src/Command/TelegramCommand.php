@@ -51,7 +51,7 @@ class TelegramCommand extends Command
 
     }
 
-    protected function configure()
+    protected function configure():void
     {
 
         $this
