@@ -7,8 +7,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TelegramMessages
  * Сохраненные сообщения, для того чтобы можно было их редактировать (хотя наверняка есть метод выборки, но разработчик пошел другим путем)
- * @ORM\Table(name="telegram_save", indexes={@ORM\Index(name="ident", columns={"ident"}), @ORM\Index(name="datein", columns={"datein"})})
- * @ORM\Entity
  */
 
  #[ORM\Table(name: 'telegram_save')]
@@ -29,9 +27,6 @@ class TelegramSave
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'IDENTITY')]
@@ -41,7 +36,6 @@ class TelegramSave
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="datein", type="datetime", nullable=false)
      */
     #[ORM\Column(name: 'datein', type: 'datetime', nullable: false)]
     private $datein;
@@ -49,7 +43,6 @@ class TelegramSave
     /**
      * @var string
      *
-     * @ORM\Column(name="ident", type="string", length=30, nullable=false)
      */
     #[ORM\Column(name: 'ident', type: 'string', length: 30, nullable: false)]
     private $ident;
@@ -57,7 +50,6 @@ class TelegramSave
     /**
      * @var int
      *
-     * @ORM\Column(name="user_chat_id", type="bigint", nullable=false)
      */
     #[ORM\Column(name: 'user_chat_id', type: 'bigint', nullable: false)]
     private int $userChatId;
@@ -65,7 +57,6 @@ class TelegramSave
     /**
      * @var int
      *
-     * @ORM\Column(name="message_id", type="integer", nullable=false)
      */
     #[ORM\Column(name: 'message_id', type: 'integer', nullable: false)]
     private $messageId;
@@ -73,7 +64,6 @@ class TelegramSave
     /**
      * @var string
      *
-     * @ORM\Column(name="mess", type="text", length=65535, nullable=false)
      */
     #[ORM\Column(name: 'mess', type: 'text', length: 65535, nullable: false)]
     private $mess;

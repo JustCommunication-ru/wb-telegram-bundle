@@ -7,8 +7,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TelegramUsersEvents
  * Подписки пользователей
- * @ORM\Table(name="telegram_user_event", indexes={@ORM\Index(name="user_chat_id", columns={"user_chat_id"}), @ORM\Index(name="code", columns={"name"})}, uniqueConstraints={@ORM\UniqueConstraint(name="user_event", columns={"user_chat_id", "name"})})
- * @ORM\Entity
  */
 #[ORM\Entity]
 #[ORM\Table(name: 'telegram_user_event')]
@@ -20,9 +18,6 @@ class TelegramUserEvent
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'IDENTITY')]
@@ -31,8 +26,7 @@ class TelegramUserEvent
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="datein", type="datetime", nullable=false)
+     * 
      */
     #[ORM\Column(name: 'datein', type: 'datetime', nullable: false)]
     private $datein;
@@ -40,7 +34,6 @@ class TelegramUserEvent
     /**
      * @var int
      *
-     * @ORM\Column(name="user_chat_id", type="bigint", nullable=false)
      */
     #[ORM\Column(name: 'user_chat_id', type: 'bigint', nullable: false)]
     private int $userChatId;
@@ -48,7 +41,6 @@ class TelegramUserEvent
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=20, nullable=false)
      */
     #[ORM\Column(name: 'name', type: 'string', length: 20, nullable: false)]
     private $name;
@@ -56,7 +48,6 @@ class TelegramUserEvent
     /**
      * @var bool
      *
-     * @ORM\Column(name="active", type="boolean", nullable=false)
      */
     #[ORM\Column(name: 'active', type: 'boolean', nullable: false)]
     private $active;

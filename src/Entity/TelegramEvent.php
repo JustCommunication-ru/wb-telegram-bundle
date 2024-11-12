@@ -4,14 +4,6 @@ namespace JustCommunication\TelegramBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * TelegramList
- * События, на которые могут подписываться подписчики телеграм канала
- * @ORM\Table(name="telegram_event", uniqueConstraints={@ORM\UniqueConstraint(name="name", columns={"name"})})
- * @ORM\Entity
- */
-
-
  /**
  * TelegramList
  * События, на которые могут подписываться подписчики телеграм канала
@@ -26,9 +18,6 @@ class TelegramEvent
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
 
     #[ORM\Id]
@@ -39,7 +28,6 @@ class TelegramEvent
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=20, nullable=false)
      */
 
     #[ORM\Column(name: 'name', type: 'string', nullable: false)] 
@@ -48,7 +36,6 @@ class TelegramEvent
     /**
      * @var string
      *
-     * @ORM\Column(name="note", type="text", length=65535, nullable=false)
      */
 
     #[ORM\Column(name: 'note', type: 'text', length:65535, nullable: false)]
@@ -59,7 +46,6 @@ class TelegramEvent
      * @var array
      * json array of roles camel-cased names
      *
-     * @ORM\Column(name="roles", type="json", length=65535, nullable=false, options={"default"="[]"})
      */
     #[ORM\Column(name: 'roles', type: 'json', nullable: false, options: ['default' => '[]'])]
     private $roles = array();

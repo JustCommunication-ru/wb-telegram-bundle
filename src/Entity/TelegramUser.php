@@ -7,8 +7,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TelegramUsers
  * Пользователи канала которые проявили хоть какую-нибудь активность
- * @ORM\Table(name="telegram_user", indexes={@ORM\Index(name="chats", columns={"user_chat_id"}), @ORM\Index(name="user", columns={"id_user"}), @ORM\Index(name="phone", columns={"phone"})})
- * @ORM\Entity
  */
 
  #[ORM\Entity]
@@ -21,9 +19,6 @@ use Doctrine\ORM\Mapping as ORM;
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'IDENTITY')]
@@ -32,16 +27,12 @@ use Doctrine\ORM\Mapping as ORM;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="datein", type="datetime", nullable=false)
      */
     #[ORM\Column(name: 'datein', type: 'datetime', nullable: false)]
     private $datein;
 
     /**
      * @var int
-     *
-     * @ORM\Column(name="user_chat_id", type="bigint", nullable=false)
      */
     #[ORM\Column(name: 'user_chat_id', type: 'bigint', nullable: false)]
     private int $userChatId;
@@ -49,7 +40,6 @@ use Doctrine\ORM\Mapping as ORM;
     /**
      * @var bool
      *
-     * @ORM\Column(name="is_bot", type="boolean", nullable=false)
      */
     #[ORM\Column(name: 'is_bot', type: 'boolean', nullable: false)]
     private $isBot;
@@ -57,7 +47,6 @@ use Doctrine\ORM\Mapping as ORM;
     /**
      * @var string
      *
-     * @ORM\Column(name="first_name", type="string", length=30, nullable=false)
      */
     #[ORM\Column(name: 'first_name', type: 'string', length: 30, nullable: false)]
     private $firstName;
@@ -65,7 +54,6 @@ use Doctrine\ORM\Mapping as ORM;
     /**
      * @var string
      *
-     * @ORM\Column(name="username", type="string", length=30, nullable=false)
      */
     #[ORM\Column(name: 'username', type: 'string', length: 30, nullable: false)]
     private $username;
@@ -73,7 +61,6 @@ use Doctrine\ORM\Mapping as ORM;
     /**
      * @var string
      *
-     * @ORM\Column(name="language_code", type="string", length=2, nullable=false)
      */
     #[ORM\Column(name: 'language_code', type: 'string', length: 2, nullable: false)]
     private $languageCode;
@@ -81,7 +68,6 @@ use Doctrine\ORM\Mapping as ORM;
     /**
      * @var bool
      *
-     * @ORM\Column(name="superuser", type="boolean", nullable=false)
      */
     #[ORM\Column(name: 'superuser', type: 'boolean', nullable: false)]
     private $superuser;
@@ -89,7 +75,6 @@ use Doctrine\ORM\Mapping as ORM;
     /**
      * @var string
      *
-     * @ORM\Column(name="phone", type="string", length=12, nullable=false)
      */
     #[ORM\Column(name: 'phone', type: 'string', length: 12, nullable: false)]
     private $phone = '';
@@ -97,7 +82,6 @@ use Doctrine\ORM\Mapping as ORM;
     /**
      * @var int
      *
-     * @ORM\Column(name="id_user", type="bigint", nullable=true)
      */
     #[ORM\Column(name: 'id_user', type: 'bigint', nullable: true)]
     private int $idUser;
