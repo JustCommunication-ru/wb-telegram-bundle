@@ -10,6 +10,12 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="telegram_message", indexes={@ORM\Index(name="user_chat_id", columns={"user_chat_id"}), @ORM\Index(name="datein", columns={"datein"})})
  * @ORM\Entity
  */
+
+ #[ORM\Entity]
+ #[ORM\Table(name: 'telegram_message')]
+ #[ORM\Index(name:'user_chat_id',columns: ['user_chat_id'])]
+ #[ORM\Index(name:'datein',columns: ['datein'])]
+
 class TelegramMessage
 {
     /**
@@ -19,6 +25,10 @@ class TelegramMessage
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
+
+     #[ORM\Id]
+     #[ORM\GeneratedValue(strategy: 'IDENTITY')]
+     #[ORM\Column(name:'id',type: 'integer',nullable: false)]
     private $id;
 
     /**
@@ -26,6 +36,7 @@ class TelegramMessage
      *
      * @ORM\Column(name="update_id", type="integer", nullable=false)
      */
+    #[ORM\Column(name:'update_id',type: 'integer',nullable: false)]
     private $updateId;
 
     /**
@@ -33,6 +44,7 @@ class TelegramMessage
      *
      * @ORM\Column(name="message_id", type="integer", nullable=false)
      */
+    #[ORM\Column(name:'message_id',type: 'integer',nullable: false)]
     private $messageId;
 
     /**
@@ -40,6 +52,7 @@ class TelegramMessage
      *
      * @ORM\Column(name="user_chat_id", type="bigint", nullable=false)
      */
+    #[ORM\Column(name:'user_chat_id',type: 'bigint',nullable: false)]
     private int $userChatId;
 
     /**
@@ -54,6 +67,7 @@ class TelegramMessage
      *
      * @ORM\Column(name="datein", type="datetime", nullable=false)
      */
+    #[ORM\Column(name:'datein',type: 'datetime',nullable: false)]
     private $datein;
 
     /**
@@ -61,6 +75,7 @@ class TelegramMessage
      *
      * @ORM\Column(name="mess", type="text", length=65535, nullable=false)
      */
+    #[ORM\Column(name:'mess',type: 'text',length: 65535,nullable: false)]
     private $mess;
 
     /**
@@ -68,6 +83,7 @@ class TelegramMessage
      *
      * @ORM\Column(name="entities", type="text", length=65535, nullable=false, options={"comment"="json"})
      */
+    #[ORM\Column(name:'entities',type: 'text',length: 65535,nullable: false, options: ['comment' => 'json'])]
     private $entities;
 
     //------------------------------------------------------------------------------------------------------------------

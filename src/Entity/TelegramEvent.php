@@ -10,6 +10,17 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="telegram_event", uniqueConstraints={@ORM\UniqueConstraint(name="name", columns={"name"})})
  * @ORM\Entity
  */
+
+
+ /**
+ * TelegramList
+ * События, на которые могут подписываться подписчики телеграм канала
+*/
+ #[ORM\Entity()]
+#[ORM\Table(name: 'telegram_event')]
+#[ORM\UniqueConstraint(name: 'name', columns: ['name'])]
+
+
 class TelegramEvent
 {
     /**
@@ -19,6 +30,10 @@ class TelegramEvent
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
+
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'IDENTITY')]
+    #[ORM\Column(name:'id', type: 'integer',nullable: false)]
     private $id;
 
     /**
@@ -26,6 +41,8 @@ class TelegramEvent
      *
      * @ORM\Column(name="name", type="string", length=20, nullable=false)
      */
+
+    #[ORM\Column(name: 'name', type: 'string', nullable: false)] 
     private $name;
 
     /**
@@ -33,6 +50,8 @@ class TelegramEvent
      *
      * @ORM\Column(name="note", type="text", length=65535, nullable=false)
      */
+
+    #[ORM\Column(name: 'note', type: 'text', length:65535, nullable: false)]
     private $note;
 
 
@@ -42,6 +61,7 @@ class TelegramEvent
      *
      * @ORM\Column(name="roles", type="json", length=65535, nullable=false, options={"default"="[]"})
      */
+    #[ORM\Column(name: 'roles', type: 'json', nullable: false, options: ['default' => '[]'])]
     private $roles = array();
 
     //-------------------------------------------------------------------------------------------------

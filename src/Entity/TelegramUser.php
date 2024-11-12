@@ -10,7 +10,13 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="telegram_user", indexes={@ORM\Index(name="chats", columns={"user_chat_id"}), @ORM\Index(name="user", columns={"id_user"}), @ORM\Index(name="phone", columns={"phone"})})
  * @ORM\Entity
  */
-class TelegramUser
+
+ #[ORM\Entity]
+#[ORM\Table(name: 'telegram_user')]
+#[ORM\Index(name: 'user', columns: ['id_user'])]
+#[ORM\Index(name: 'phone', columns: ['phone'])]
+
+ class TelegramUser
 {
     /**
      * @var int
@@ -19,6 +25,9 @@ class TelegramUser
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'IDENTITY')]
+    #[ORM\Column(name: 'id', type: 'integer', nullable: false)]
     private $id;
 
     /**
@@ -26,6 +35,7 @@ class TelegramUser
      *
      * @ORM\Column(name="datein", type="datetime", nullable=false)
      */
+    #[ORM\Column(name: 'datein', type: 'datetime', nullable: false)]
     private $datein;
 
     /**
@@ -33,6 +43,7 @@ class TelegramUser
      *
      * @ORM\Column(name="user_chat_id", type="bigint", nullable=false)
      */
+    #[ORM\Column(name: 'user_chat_id', type: 'bigint', nullable: false)]
     private int $userChatId;
 
     /**
@@ -40,6 +51,7 @@ class TelegramUser
      *
      * @ORM\Column(name="is_bot", type="boolean", nullable=false)
      */
+    #[ORM\Column(name: 'is_bot', type: 'boolean', nullable: false)]
     private $isBot;
 
     /**
@@ -47,6 +59,7 @@ class TelegramUser
      *
      * @ORM\Column(name="first_name", type="string", length=30, nullable=false)
      */
+    #[ORM\Column(name: 'first_name', type: 'string', length: 30, nullable: false)]
     private $firstName;
 
     /**
@@ -54,6 +67,7 @@ class TelegramUser
      *
      * @ORM\Column(name="username", type="string", length=30, nullable=false)
      */
+    #[ORM\Column(name: 'username', type: 'string', length: 30, nullable: false)]
     private $username;
 
     /**
@@ -61,6 +75,7 @@ class TelegramUser
      *
      * @ORM\Column(name="language_code", type="string", length=2, nullable=false)
      */
+    #[ORM\Column(name: 'language_code', type: 'string', length: 2, nullable: false)]
     private $languageCode;
 
     /**
@@ -68,6 +83,7 @@ class TelegramUser
      *
      * @ORM\Column(name="superuser", type="boolean", nullable=false)
      */
+    #[ORM\Column(name: 'superuser', type: 'boolean', nullable: false)]
     private $superuser;
 
     /**
@@ -75,6 +91,7 @@ class TelegramUser
      *
      * @ORM\Column(name="phone", type="string", length=12, nullable=false)
      */
+    #[ORM\Column(name: 'phone', type: 'string', length: 12, nullable: false)]
     private $phone = '';
 
     /**
@@ -82,7 +99,7 @@ class TelegramUser
      *
      * @ORM\Column(name="id_user", type="bigint", nullable=true)
      */
-
+    #[ORM\Column(name: 'id_user', type: 'bigint', nullable: true)]
     private int $idUser;
 
     //----------------------------------------------------------------------------------------------

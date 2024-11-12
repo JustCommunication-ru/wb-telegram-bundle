@@ -10,6 +10,12 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="telegram_save", indexes={@ORM\Index(name="ident", columns={"ident"}), @ORM\Index(name="datein", columns={"datein"})})
  * @ORM\Entity
  */
+
+ #[ORM\Table(name: 'telegram_save')]
+ #[ORM\Entity]
+ #[ORM\Index(name: 'ident', columns: ['ident'])]
+ #[ORM\Index(name: 'datein', columns: ['datein'])]
+
 class TelegramSave
 {
     /**
@@ -27,6 +33,9 @@ class TelegramSave
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'IDENTITY')]
+    #[ORM\Column(name: 'id', type: 'integer')]
     private $id;
 
     /**
@@ -34,6 +43,7 @@ class TelegramSave
      *
      * @ORM\Column(name="datein", type="datetime", nullable=false)
      */
+    #[ORM\Column(name: 'datein', type: 'datetime', nullable: false)]
     private $datein;
 
     /**
@@ -41,6 +51,7 @@ class TelegramSave
      *
      * @ORM\Column(name="ident", type="string", length=30, nullable=false)
      */
+    #[ORM\Column(name: 'ident', type: 'string', length: 30, nullable: false)]
     private $ident;
 
     /**
@@ -48,6 +59,7 @@ class TelegramSave
      *
      * @ORM\Column(name="user_chat_id", type="bigint", nullable=false)
      */
+    #[ORM\Column(name: 'user_chat_id', type: 'bigint', nullable: false)]
     private int $userChatId;
 
     /**
@@ -55,6 +67,7 @@ class TelegramSave
      *
      * @ORM\Column(name="message_id", type="integer", nullable=false)
      */
+    #[ORM\Column(name: 'message_id', type: 'integer', nullable: false)]
     private $messageId;
 
     /**
@@ -62,6 +75,7 @@ class TelegramSave
      *
      * @ORM\Column(name="mess", type="text", length=65535, nullable=false)
      */
+    #[ORM\Column(name: 'mess', type: 'text', length: 65535, nullable: false)]
     private $mess;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
