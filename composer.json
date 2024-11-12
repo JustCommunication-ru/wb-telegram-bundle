@@ -14,8 +14,8 @@
         "symfony/http-kernel": ">=5.4 ^6.2",
         "symfony/config": ">=5.4 ^6.2",
         "symfony/dependency-injection": ">=5.4 ^6.2",
-        "doctrine/doctrine-bundle": "^2.10",
-        "doctrine/orm": "^2.15",
+        "doctrine/doctrine-bundle": "^2.13",
+        "doctrine/orm": "^3.3",
         "symfony/framework-bundle": ">=5.4 ^6.2",
         "symfony/yaml": ">=5.4 ^6.2"
     },
@@ -42,6 +42,17 @@
             "JustCommunication\\TelegramBundle\\Tests\\": "tests/"
         }
     },
+
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "6.4.*"
+        }
+    },
+
     "require-dev": {
         "symfony/browser-kit": "^6.3",
         "symfony/phpunit-bridge": "^6.3"
