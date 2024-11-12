@@ -1,0 +1,8 @@
+doctrine:
+  orm:
+    mappings:
+      JustCommunication\TelegramBundle:
+        is_bundle: false
+        type: attribute
+        prefix: 'JustCommunication\TelegramBundle\Entity'
+        alias: JustCommunication\TelegramBundle
