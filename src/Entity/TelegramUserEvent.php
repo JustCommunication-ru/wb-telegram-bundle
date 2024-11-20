@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity]
 #[ORM\Table(name: 'telegram_user_event')]
 #[ORM\Index(name: 'user_chat_id', columns: ['user_chat_id'])]
-#[ORM\Index(name: 'code')]
+#[ORM\Index(name: 'code', columns: ['name'])]
 #[ORM\UniqueConstraint(name: 'user_event', columns: ['user_chat_id', 'name'])]
 class TelegramUserEvent
 {
