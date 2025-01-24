@@ -13,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name: 'telegram_user')]
 #[ORM\Index(name: 'user', columns: ['id_user'])]
 #[ORM\Index(name: 'phone', columns: ['phone'])]
+#[ORM\Index(name: 'chats', columns: ['user_chat_id'])]
 
  class TelegramUser
 {
