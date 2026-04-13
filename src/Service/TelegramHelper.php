@@ -528,7 +528,14 @@ dd([$origin_str, array_map(function($item) {
             curl_setopt($ch, CURLOPT_POSTFIELDS, 'text=' . $text);
         }
 
-        if((int)$this->config['connection_timeout'] !== 0){
+        if(isset($this->config['connection_timeout'])){
+            $timeout = (int)$this->config['connection_timeout'];
+        }else{
+            $timeout = 0;
+        }
+        
+        
+        if($timeout !== 0){
             $this->logger->info('TIMEOUT '. var_export((int)$this->config['connection_timeout'],true) );
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT_MS, (int)$this->config['connection_timeout']); // отсечка на установку соединения
         }else{

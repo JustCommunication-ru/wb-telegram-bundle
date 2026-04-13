@@ -52,7 +52,10 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('proxy_auth') // надо переименовать, что за auth блядь?
                             ->info('CURLOPT_PROXYUSERPWD value if needed')
                         ->end()
-
+                        ->scalarNode('connection_timeout')
+                            ->info('Timeout connection to teleggram API, default is "%env(APP_TELEGRAM_TIMEOUT)%"')
+                            ->defaultValue('%env(APP_TELEGRAM_TIMEOUT)%')
+                        ->end()
                         ->scalarNode('token')
                             ->info('Secret token to access bot by API')
                         ->end()
