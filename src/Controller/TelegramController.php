@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 /**
  * Контролер по сути нужен только для webhook-а
@@ -22,6 +22,7 @@ class TelegramController extends AbstractController
 {
     private $webhook;
     private TelegramHelper $telegram;
+    private Response $response;
 
     // вместо autowire TelegramWebhook $webhook используется явное подключение вебхука через конфиги
     // для того чтобы можно было переопределить повидение телеграм бота
