@@ -11,6 +11,7 @@ telegram:
     proxy_auth: "" #login:pass
     token: "%env(JC_TELEGRAM_TOKEN)%"
     app_url: "%env(APP_URL)%"
+    connection_timeout: "%env(APP_TELEGRAM_TIMEOUT)%"
     production_webhook_app_url: "" # чтобы при запуске из локала не сбивать реально работающий хук боевой адрес необходимо указать здесь
     wrong_event_exception: true # ронять скрипты при попытке отправить несуществующий event, можно считать эту опцию strict mode
     markdown_checker: true # форматирование сообщения (умное исправление markdown и т.д. мероприятия нацеленные на 100% доставку сообщения)

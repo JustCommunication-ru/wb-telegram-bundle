@@ -527,6 +527,15 @@ dd([$origin_str, array_map(function($item) {
         if ($text) {
             curl_setopt($ch, CURLOPT_POSTFIELDS, 'text=' . $text);
         }
+
+        if((int)$this->config['connection_timeout'] !== 0){
+            $this->logger->info('TIMEOUT '. var_export((int)$this->config['connection_timeout'],true) );
+            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT_MS, (int)$this->config['connection_timeout']); // отсечка на установку соединения
+        }else{
+            $this->logger->info('TIMEOUT TRISTA'   );
+            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT_MS, 3000); // отсечка на установку соединения
+        }
+
         if ($this->config['proxy']!=''){
             curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);  // тип прокси
             curl_setopt($ch, CURLOPT_PROXY,  $this->config['proxy']);                 // ip, port прокси
